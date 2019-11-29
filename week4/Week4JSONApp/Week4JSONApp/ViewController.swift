@@ -30,7 +30,7 @@ class ViewController: UIViewController {
       } else {
         let decoder = JSONDecoder()
         if let data = data, let station = try? decoder.decode(Station.self, from: data) {
-          OperationQueue.main.addOperation {
+          DispatchQueue.main.async {
             self.stationIDLabel.text = station.stationID
             self.stationNameLabel.text = station.stationName
             self.addressLabel.text = station.stationAddress
